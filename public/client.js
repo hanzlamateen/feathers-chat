@@ -68,6 +68,7 @@ const chatTemplate =
       <form class="input-group overflow-hidden" id="send-message">
         <input name="text" type="text" placeholder="Compose message" class="input input-bordered w-full">
         <button type="submit" class="btn">Send</button>
+        <button type="button" className="btn" id="create-route">Create Route</button>
       </form>
     </div>
   </div>
@@ -240,6 +241,11 @@ addEventListener('#send-message', 'submit', async (ev) => {
   })
 
   input.value = ''
+})
+
+addEventListener('#create-route', 'click', async () => {
+  console.log('Activating route')
+  await client.service('route-activate').create({ project: 'default-project', route: '/admin', activate: true })
 })
 
 // Listen to created events and add the new message in real-time
