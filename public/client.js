@@ -68,6 +68,7 @@ const chatTemplate =
       <form class="input-group overflow-hidden" id="send-message">
         <input name="text" type="text" placeholder="Compose message" class="input input-bordered w-full">
         <button type="submit" class="btn">Send</button>
+        <button id="email" type="button" class="btn">Email</button>
       </form>
     </div>
   </div>
@@ -227,6 +228,19 @@ addEventListener('#logout', 'click', async () => {
   document.getElementById('app').innerHTML = loginTemplate()
 })
 
+// "Email" button click
+addEventListener('#email', 'click', async (ev) => {
+  ev.preventDefault()
+
+  alert('Sending request')
+
+  // Create a new message and then clear the input field
+  const response = await client.service('messages').find()
+  
+  console.log(response)
+  alert(response)
+})
+
 // "Send" message form submission handler
 addEventListener('#send-message', 'submit', async (ev) => {
   // This is the message text input field
@@ -241,6 +255,7 @@ addEventListener('#send-message', 'submit', async (ev) => {
 
   input.value = ''
 })
+
 
 // Listen to created events and add the new message in real-time
 client.service('messages').on('created', addMessage)
