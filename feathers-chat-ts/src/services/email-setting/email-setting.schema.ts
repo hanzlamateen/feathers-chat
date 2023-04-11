@@ -93,7 +93,7 @@ export type EmailSettingPatch = Static<typeof emailSettingPatchSchema>
 // Schema for allowed query properties
 export const emailSettingQueryProperties = Type.Pick(emailSettingSchema, [
   'id',
-  'smtp',
+  // 'smtp',
   'from',
   'subject',
   'smsNameCharacterLimit'
