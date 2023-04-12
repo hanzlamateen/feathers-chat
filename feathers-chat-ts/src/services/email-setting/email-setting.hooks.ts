@@ -5,7 +5,8 @@ import {
   emailSettingDatabaseSchema,
   emailSettingDataSchema,
   emailSettingPatchSchema,
-  emailSettingQuerySchema
+  emailSettingQuerySchema,
+  emailSettingSchema
 } from './email-setting.schema'
 import { dataValidator, queryValidator } from '../../validators'
 
@@ -17,6 +18,7 @@ import {
   emailSettingResolver
 } from './email-setting.resolvers'
 
+const emailSettingValidator = getValidator(emailSettingSchema, dataValidator)
 const emailSettingDataValidator = getValidator(emailSettingDataSchema, dataValidator)
 const emailSettingPatchValidator = getValidator(emailSettingPatchSchema, dataValidator)
 const emailSettingQueryValidator = getValidator(emailSettingQuerySchema, queryValidator)
