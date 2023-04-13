@@ -2,11 +2,14 @@ import { hooks as schemaHooks } from '@feathersjs/schema'
 import { getValidator } from '@feathersjs/typebox'
 
 import {
+  emailAuthSchema,
   emailSettingDatabaseSchema,
   emailSettingDataSchema,
   emailSettingPatchSchema,
   emailSettingQuerySchema,
-  emailSettingSchema
+  emailSettingSchema,
+  emailSmtpSchema,
+  emailSubjectSchema
 } from './email-setting.schema'
 import { dataValidator, queryValidator } from '../../validators'
 
@@ -18,6 +21,9 @@ import {
   emailSettingResolver
 } from './email-setting.resolvers'
 
+const emailSubjectValidator = getValidator(emailSubjectSchema, dataValidator)
+const emailAuthValidator = getValidator(emailAuthSchema, dataValidator)
+const emailSmtpValidator = getValidator(emailSmtpSchema, dataValidator)
 const emailSettingValidator = getValidator(emailSettingSchema, dataValidator)
 const emailSettingDataValidator = getValidator(emailSettingDataSchema, dataValidator)
 const emailSettingPatchValidator = getValidator(emailSettingPatchSchema, dataValidator)
