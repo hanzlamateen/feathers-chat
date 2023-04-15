@@ -95,7 +95,7 @@ export const emailSettingQueryProperties = Type.Pick(emailSettingSchema, [
   'id',
   // 'smtp',
   'from',
-  'subject',
+  // 'subject',
   'smsNameCharacterLimit'
 ])
 export const emailSettingQuerySchema = Type.Intersect(
