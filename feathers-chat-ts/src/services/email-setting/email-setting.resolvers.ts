@@ -21,9 +21,9 @@ export const emailSettingExternalResolver = resolve<EmailSettingType, HookContex
     // Convert the raw data into a new structure before running property resolvers
     converter: async (rawData, context) => {
       return {
-        ...rawData.data,
-        smtp: JSON.parse(rawData.data.smtp) as EmailSmtpType,
-        subject: JSON.parse(rawData.data.subject) as EmailSubjectType
+        ...rawData,
+        smtp: JSON.parse(rawData.smtp) as EmailSmtpType,
+        subject: JSON.parse(rawData.subject) as EmailSubjectType
       }
     }
   }
@@ -41,9 +41,9 @@ export const emailSettingDataResolver = resolve<EmailSettingDatabaseType, HookCo
     // Convert the raw data into a new structure before running property resolvers
     converter: async (rawData, context) => {
       return {
-        ...rawData.data,
-        smtp: JSON.stringify(rawData.data.smtp),
-        subject: JSON.stringify(rawData.data.subject)
+        ...rawData,
+        smtp: JSON.stringify(rawData.smtp),
+        subject: JSON.stringify(rawData.subject)
       }
     }
   }
@@ -57,9 +57,9 @@ export const emailSettingPatchResolver = resolve<EmailSettingType, HookContext>(
     // Convert the raw data into a new structure before running property resolvers
     converter: async (rawData, context) => {
       return {
-        ...rawData.data,
-        smtp: JSON.stringify(rawData.data.smtp),
-        subject: JSON.stringify(rawData.data.subject)
+        ...rawData,
+        smtp: JSON.stringify(rawData.smtp),
+        subject: JSON.stringify(rawData.subject)
       }
     }
   }
